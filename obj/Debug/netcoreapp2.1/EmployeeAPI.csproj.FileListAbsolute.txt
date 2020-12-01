@@ -9,3 +9,7 @@ C:\Users\tshumae.FBC\source\repos\EmployeeAPI\EmployeeAPI\obj\Debug\netcoreapp2.
 C:\Users\tshumae.FBC\source\repos\EmployeeAPI\EmployeeAPI\obj\Debug\netcoreapp2.1\EmployeeAPI.RazorAssemblyInfo.cache
 C:\Users\tshumae.FBC\source\repos\EmployeeAPI\EmployeeAPI\obj\Debug\netcoreapp2.1\EmployeeAPI.RazorAssemblyInfo.cs
 C:\Users\tshumae.FBC\source\repos\EmployeeAPI\EmployeeAPI\obj\Debug\netcoreapp2.1\EmployeeAPI.RazorTargetAssemblyInfo.cache
+C:\Users\tshumae.FBC\source\repos\EmployeeAPI\EmployeeAPI\bin\Debug\netcoreapp2.1\EmployeeAPI.pdb
+C:\Users\tshumae.FBC\source\repos\EmployeeAPI\EmployeeAPI\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\tshumae.FBC\source\repos\EmployeeAPI\EmployeeAPI\obj\Debug\netcoreapp2.1\EmployeeAPI.dll
+C:\Users\tshumae.FBC\source\repos\EmployeeAPI\EmployeeAPI\obj\Debug\netcoreapp2.1\EmployeeAPI.pdb

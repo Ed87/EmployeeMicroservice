@@ -34,7 +34,7 @@ namespace EmployeeAPI.Model
                 new EmploymentType
                 {
                     EmploymentTypeId = 3,
-                    Name = "Other"
+                    Name = "Director"
 
                 }
             );
