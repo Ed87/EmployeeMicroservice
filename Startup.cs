@@ -62,6 +62,20 @@ namespace EmployeeAPI
                     }
                 });
 
+                c.SwaggerDoc("v2", new OpenApiInfo
+                {
+
+                    Title = "Employee API ",
+                    Version = "2.0",
+                    Description = "A simple API to create or update employees",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Ed Tshuma",
+                        Email = "edtshuma@gmail.com",
+                        Url = new Uri("https://www.programmingwithwolfgang.com/")
+                    }
+                });
+
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
@@ -90,8 +104,16 @@ namespace EmployeeAPI
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee API V1");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "Employee API V2");
                 c.RoutePrefix = string.Empty;
             });
+
+            //TODO : Upgrade to NetCore 3.1 for API versioning full support
+            // app.UseRouting();          
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllers();
+            //});
         }
     }
 }

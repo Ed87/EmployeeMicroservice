@@ -13,6 +13,7 @@ namespace EmployeeAPI.Controllers
     
     [ApiController]
     [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [Route("{version:apiVersion}/[controller]")]
     public class EmployeeController : ControllerBase
     {
@@ -115,6 +116,21 @@ namespace EmployeeAPI.Controllers
         public IActionResult Delete(int id)
         {
             _employeeService.DeleteEmployee(id);
+            return new OkResult();
+        }
+
+        /// <summary>
+        /// Sample API version 2 action
+        /// </summary>       
+        /// <returns>Returns the updated employee</returns>
+        /// <response code="200">Returned if the employee was updated</response>
+        /// <response code="400">Returned if the model couldn't be parsed or the customer couldn't be found</response>
+        /// <response code="422">Returned when the validation failed</response>
+        [HttpGet]
+        [MapToApiVersion("2.0")]
+        public IActionResult GetVersionTwo()
+        {
+          
             return new OkResult();
         }
     }
