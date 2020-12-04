@@ -67,6 +67,7 @@ namespace EmployeeAPI
                 c.IncludeXmlComments(xmlPath);
 
                 c.OperationFilter<RemoveVersionFromParameter>();
+                c.DocumentFilter<ReplaceVersionWithExactValueInPath>();
             });
         }
 
