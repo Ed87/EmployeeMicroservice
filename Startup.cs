@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace EmployeeAPI
@@ -29,12 +30,28 @@ namespace EmployeeAPI
             services.AddDbContext<EmployeeContext>(o => o.UseSqlServer(Configuration.GetConnectionString("EmployeeDB")));
             services.AddTransient<IEmployeeService, EmployeeRepository>();
 
+            services.AddApiVersioning(options =>
+            {
+                options.AssumeDefaultVersionWhenUnspecified = true;
+                options.ReportApiVersions = true;
+                options.DefaultApiVersion = new ApiVersion(1, 0);
+            });
+
+
             services.AddSwaggerGen(c =>
             {
+                //Following code to avoid swagger generation error 
+                //due to same method name in different versions.
+                c.ResolveConflictingActions(descriptions =>
+                {
+                    return descriptions.First();
+                });
+
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Version = "v1",
-                    Title = "Employee API",
+                  
+                    Title = "Employee API ",
+                    Version = "1.0",
                     Description = "A simple API to create or update employees",
                     Contact = new OpenApiContact
                     {

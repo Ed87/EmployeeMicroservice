@@ -10,8 +10,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeAPI.Controllers
 {
-    [Route("api/[controller]")]
+    
     [ApiController]
+    [ApiVersion("1.0")]
+    [Route("{version:apiVersion}/[controller]")]
     public class EmployeeController : ControllerBase
     {
 
