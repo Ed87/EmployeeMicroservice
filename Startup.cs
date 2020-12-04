@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace EmployeeAPI
 {
@@ -24,6 +28,26 @@ namespace EmployeeAPI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<EmployeeContext>(o => o.UseSqlServer(Configuration.GetConnectionString("EmployeeDB")));
             services.AddTransient<IEmployeeService, EmployeeRepository>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Employee API",
+                    Description = "A simple API to create or update employees",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Ed Tshuma",
+                        Email = "edtshuma@gmail.com",
+                        Url = new Uri("https://www.programmingwithwolfgang.com/")
+                    }
+                });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +64,13 @@ namespace EmployeeAPI
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee API V1");
+                c.RoutePrefix = string.Empty;
+            });
         }
     }
 }
