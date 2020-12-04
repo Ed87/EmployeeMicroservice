@@ -1,4 +1,5 @@
-﻿using EmployeeAPI.Model;
+﻿using EmployeeAPI.Filters;
+using EmployeeAPI.Model;
 using EmployeeAPI.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -64,6 +65,8 @@ namespace EmployeeAPI
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
+
+                c.OperationFilter<RemoveVersionFromParameter>();
             });
         }
 
