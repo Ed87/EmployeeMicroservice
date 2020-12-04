@@ -45,7 +45,7 @@ namespace EmployeeAPI.Controllers
         /// <param name="id">Model to get a single employee</param>
         /// <returns>Returns the updated employee</returns>
         /// <response code="200">Returned if the employee was retrieved</response>
-        /// <response code="400">Returned if the model couldn't be parsed or the employee couldn't be found</response>
+        /// <response code="204">Returned if the employee couldn't be found</response>
         /// <response code="422">Returned when the validation failed</response>
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

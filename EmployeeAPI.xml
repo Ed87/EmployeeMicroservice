@@ -20,7 +20,7 @@
             <param name="id">Model to get a single employee</param>
             <returns>Returns the updated employee</returns>
             <response code="200">Returned if the employee was retrieved</response>
-            <response code="400">Returned if the model couldn't be parsed or the employee couldn't be found</response>
+            <response code="204">Returned if the employee couldn't be found</response>
             <response code="422">Returned when the validation failed</response>
         </member>
         <member name="M:EmployeeAPI.Controllers.EmployeeController.CreateEmployee(EmployeeAPI.Model.Employee)">
