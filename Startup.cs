@@ -65,9 +65,9 @@ namespace EmployeeAPI
                 c.SwaggerDoc("v2", new OpenApiInfo
                 {
 
-                    Title = "Employee API ",
+                    Title = "MoneyGram API ",
                     Version = "2.0",
-                    Description = "A simple API to create or update employees",
+                    Description = "An API to push MoneyGram transactions to RBZ",
                     Contact = new OpenApiContact
                     {
                         Name = "Ed Tshuma",
@@ -103,8 +103,8 @@ namespace EmployeeAPI
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee API V1");
-                c.SwaggerEndpoint("/swagger/v2/swagger.json", "Employee API V2");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "MoneyGram API V1");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "MoneyGram API V2");
                 c.RoutePrefix = string.Empty;
             });
 
